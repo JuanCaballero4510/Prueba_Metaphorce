@@ -1,14 +1,18 @@
 # Prueba_Metaphorce
 
 Tecnologias utilizadas
-    Spring Boot
-    Hibernate/JPA
+    Spring Boot, 
+    Hibernate/JPA, 
     MySql
 
     El proyecto esta con arquitectura MVC, con la cual se mantiene una distribucion de capas uniforme
     para un correcto mantenimiento y garantizando la escalabilidad.
 
-    Coleccion de informacion de endpoint ./Postman_Data
+Recursos
+    Coleccion de informacion de endpoint dentro de Postman_Data
+    Ejercicios de SQL, dentro de Ejercicios_T-SQL
+    Scripts para generar usuario y db dentro de scripts
+
 ------------------------------------------------------------------------------------------------------
 Pasos Para Ejecutar El Proyecto
 
