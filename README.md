@@ -8,7 +8,7 @@ Tecnologias utilizadas
     El proyecto esta con arquitectura MVC, con la cual se mantiene una distribucion de capas uniforme
     para un correcto mantenimiento y garantizando la escalabilidad.
 
-
+    Coleccion de informacion de endpoint ./Postman_Data
 ------------------------------------------------------------------------------------------------------
 Pasos Para Ejecutar El Proyecto
 

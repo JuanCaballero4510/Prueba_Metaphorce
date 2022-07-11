@@ -28,6 +28,7 @@ public class ServiceResponse<T> implements Serializable {
         serviceError.setMessage(mensaje);
         this.errors.add(serviceError);
         this.response = null;
+        this.successful = false;
     }
 
 	public boolean isSuccessful() {

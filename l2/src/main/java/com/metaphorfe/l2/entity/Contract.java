@@ -28,7 +28,7 @@ public class Contract implements Serializable {
 	/**
 	 * Serial Version
 	 */
-	private static final long serialVersionUID = -1L;
+	private static final long serialVersionUID = -3904251195338397177L;
 	
 	@Id
 	@GeneratedValue(
@@ -40,7 +40,7 @@ public class Contract implements Serializable {
 			allocationSize = 1
 	)
 	private Long contractId;
-	
+
 	@NonNull
 	@Temporal(TemporalType.TIMESTAMP)
 	@JsonFormat(pattern = Settings.FORMAT_DATE)
@@ -65,4 +65,12 @@ public class Contract implements Serializable {
 	@JoinColumn(name = "employeeId")
 	private Employee employeeId;
 
+    public Contract() {
+        super();
+    }
+    
+    public Contract(Long contractId) {
+        this.contractId = contractId;
+    }
+    
 }

@@ -40,14 +40,14 @@ public class EmployeeController {
 	@PostMapping(path = "/insert")
 	public ResponseEntity<ServiceResponse<Employee>> insertEmployee(@RequestBody Employee employee) {
 		employee.setEmployeeId(null);
-		ServiceResponse<Employee> response = employeeService.insertUpdateEmployee(employee);
+		ServiceResponse<Employee> response = employeeService.insertEmployee(employee);
 		return new ResponseEntity<ServiceResponse<Employee>>(response, ServicesUtil.getCodeHttp(response));
 	}
 
 	@PutMapping(path = "/update/{employeeId}")
 	public ResponseEntity<ServiceResponse<Employee>> updateEmployee(@PathVariable(name = "employeeId") Long employeeId, @RequestBody Employee employee) {
 		employee.setEmployeeId(employeeId);
-		ServiceResponse<Employee> response = employeeService.insertUpdateEmployee(employee);
+		ServiceResponse<Employee> response = employeeService.updateEmployee(employee);
 		return new ResponseEntity<ServiceResponse<Employee>>(response, ServicesUtil.getCodeHttp(response));
 	}
 

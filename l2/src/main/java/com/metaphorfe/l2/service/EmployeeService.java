@@ -73,19 +73,50 @@ public class EmployeeService {
 		return response;
 	}
 
-	public ServiceResponse<Employee> insertUpdateEmployee(Employee employee) {
+	public ServiceResponse<Employee> insertEmployee(Employee employee) {
 		ServiceResponse<Employee> response = new ServiceResponse<>();
 
 		try {
 			//check format RFC
 			if(GeneralUtil.validateRFCFormat(employee.getTaxIdNumber())) {
-				//RFC exists?
-				Optional<Employee> tmp = employeeRepository.findByTaxIdNumber(employee.getTaxIdNumber());
-				if(!tmp.isPresent()) {
+				Optional<Employee> rfcEmployee = employeeRepository.findByTaxIdNumber(employee.getTaxIdNumber());
+				if(rfcEmployee.isPresent()) {
+					response.addError(MsgErrores.COD_500, MsgErrores.MSG_ERROR_RFC_EXISTS);
+				} else {
 					response.setResponse(employeeRepository.save(employee));
 					response.setSuccessful(true);
+				}
+			} else {
+				response.addError(MsgErrores.COD_500, MsgErrores.MSG_ERROR_FORMAT_RFC);
+			}
+		} catch (DataIntegrityViolationException ex) {
+			log.error(MsgErrores.MSG_EXCEPTION,  ex.getRootCause().getMessage());
+			response.addError(MsgErrores.COD_500, ex.getRootCause().getMessage());
+		} catch (Exception e) {
+			log.error(MsgErrores.MSG_EXCEPTION,  e.getMessage());
+			response.addError(MsgErrores.COD_500, MsgErrores.MSG_500);
+		}
+
+		return response;
+	}
+
+	public ServiceResponse<Employee> updateEmployee(Employee employee) {
+		ServiceResponse<Employee> response = new ServiceResponse<>();
+
+		try {
+			//check format RFC
+			if(GeneralUtil.validateRFCFormat(employee.getTaxIdNumber())) {
+				Optional<Employee> rfcEmployee = employeeRepository.findByTaxIdNumber(employee.getTaxIdNumber());
+				if(rfcEmployee.isPresent()) {
+					if(rfcEmployee.get().getEmployeeId().intValue() != employee.getEmployeeId()) {
+						response.addError(MsgErrores.COD_500, MsgErrores.MSG_ERROR_RFC_EXISTS);
+					} else {
+						response.setResponse(employeeRepository.save(employee));
+						response.setSuccessful(true);
+					}
 				} else {
-					response.addError(MsgErrores.COD_500, MsgErrores.MSG_ERROR_RFC_EXISTS);
+					response.setResponse(employeeRepository.save(employee));
+					response.setSuccessful(true);
 				}
 			} else {
 				response.addError(MsgErrores.COD_500, MsgErrores.MSG_ERROR_FORMAT_RFC);

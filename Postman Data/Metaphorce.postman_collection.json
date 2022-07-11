@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "95e741e3-d19e-4fde-a00f-a65678c52b26",
+		"name": "Metaphorce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7618280"
+	},
+	"item": [
+		{
+			"name": "employee-insert",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "metaphorce",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "m3t4Ph0rc3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"birthDate\": \"2022-07-11 22:24:09\",\r\n  \"cellPhone\": \"4527893652\",\r\n  \"email\": \"armando@gmail.com\",\r\n  \"employeeId\": null,\r\n  \"lastName\": \"Guerrero\",\r\n  \"name\": \"Adrian\",\r\n  \"status\": {\r\n    \"dateCreated\": \"2022-07-11 22:24:09\",\r\n    \"isActive\": true\r\n  },\r\n  \"taxIdNumber\": \"ORP830422DI6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/l2/employees/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"l2",
+						"employees",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employee-update",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "metaphorce",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "m3t4Ph0rc3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"employeeId\": 1,\r\n        \"taxIdNumber\": \"ORP830422DI5\",\r\n        \"name\": \"Juan\",\r\n        \"lastName\": \"Caballero Guerrero\",\r\n        \"birthDate\": \"2022-07-11 22:24:09\",\r\n        \"email\": \"jcaballero@gmail.com\",\r\n        \"cellPhone\": \"4424815051\",\r\n        \"status\": {\r\n            \"isActive\": true,\r\n            \"dateCreated\": \"2022-07-10 22:24:09\"\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/l2/employees/update/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"l2",
+						"employees",
+						"update",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "employee-delete",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "metaphorce",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "m3t4Ph0rc3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/l2/employees/delete-contract/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"l2",
+						"employees",
+						"delete-contract",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/l2/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"l2",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "contract-insert",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "metaphorce",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "m3t4Ph0rc3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"contractId\": null,\r\n  \"contractTypeId\": {\r\n    \"contractTypeId\": 1\r\n  },\r\n  \"dateFrom\": \"2022-07-11 22:24:09\",\r\n  \"dateTo\": \"2022-07-11 22:24:09\",\r\n  \"employeeId\": {\r\n    \"employeeId\": 1\r\n  },\r\n  \"salaryPerDay\": 15.20,\r\n  \"status\": {\r\n    \"dateCreated\": \"2022-07-11 22:24:09\",\r\n    \"isActive\": true\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/l2/contracts/insert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"l2",
+						"contracts",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
